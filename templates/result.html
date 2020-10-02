@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Match Result | Sign Language Matching Tool</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body >
+<div class="jumbotron jumbotron-fluid bg-primary text-light">
+  <div class="container-fluid  ">
+    <h1 class="display-4 pl-3">Sign Language Matching Tool</h1>
+      <p class="lead pl-3">This tool is designed for finding matching percentage between two sign language signals given by you using mechanism of <mark>Longest Common Subsequence(LCS)</mark>.
+        <br>You can read about LCS <a href="https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/" class="text-warning b"><strong>here</strong></a>. </p>
+  </div>
+</div>
+
+<div class="container-fluid p-2" style="background-image:url('https://www.wpclipart.com/sign_language/German_sign_language_alphabet.png')" >
+   <div class="container bg-white border border-dark " style="opacity:1">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-lg-6 border-right border-dark ">
+
+                <h1 class="text-primary bg-white  " ><center>Image 1</center></h1>
+                <img src="/media/{{imageLoc1}}" alt="Input Image 1" width="150" class="d-block mx-auto mb-4">
+
+                <div class="container p-2  bg-warning text-dark ">
+                   <h5> <center>Matching Percentage (With Image 1) : {{matchPercent1}} %</center></h5>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+
+                <h1 class="text-primary bg-white" ><center>Image 2</center></h1>
+                <img src="/media/{{imageLoc2}}" alt="Input Image 2" width="150" class="d-block mx-auto mb-4">
+
+                <div class="container p-2  bg-warning text-dark">
+                   <h5> <center>Matching Percentage (With Image 2) : {{matchPercent2}} %</center></h5>
+                </div>
+
+            </div>
+        </div>
+
+   </div>
+
+</div>
+
+
+    <div class="m-5">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading pl-3 display-4 text-primary shadow">What is Sign Language?</h2>
+        <p class="lead pl-3">A language that employs signs made with the hands and other movements, including facial expressions and postures of the body, used primarily by people who are deaf. There are many different sign languages as, for example, British and American sign languages. British sign language (BSL) is not easily intelligible to users of American sign language (ASL). </p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto shadow" width="500" height="500" src="https://thumbs.dreamstime.com/b/two-colleagues-speaking-sign-language-there-workplace-hearing-impairment-concept-vector-illustration-web-printing-145555015.jpg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"></img>
+      </div>
+    </div>
+    </div>
+
+
+
+    <div class="row featurette m-4">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading pl-3 display-4 text-primary shadow">Sign Language Symbols</h2>
+          <p class="lead pl-3">Parameters that make Sign Language Symbols different: </p>
+          <ul>
+              <li>Handshape</li>
+              <li>Palm Orientation</li>
+              <li>Location</li>
+              <li>Movement</li>
+              <li>Facial Expressions</li>
+          </ul>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" src="https://www.wpclipart.com/sign_language/German_sign_language_alphabet.png" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"></img>
+      </div>
+    </div>
+
+
+<div class="container my-4">
+<div class="row">
+  <div class="container">
+  <h2 class="text-center">Developers</h2>
+    </div>
+      <div class="col-md-4 my-3 text-center">
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnIyZxJAl5REjZbn-b1EMFrTtXw3dXAQ7fTg&usqp=CAU" ></img>
+        <h2>Atul Thakre</h2>
+        <p>Engineering Student of RCOEM.Pursuing BE degree and presently in 3rd year.</p>
+        <p><a class="btn btn-primary" href="https://www.linkedin.com/in/arthakre/" role="button">View LinkedIn profile &raquo;</a></p>
+      </div>
+      <div class="col-md-4 my-3 text-center">
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnIyZxJAl5REjZbn-b1EMFrTtXw3dXAQ7fTg&usqp=CAU"></img>
+        <h2>Yash Agrawal</h2>
+         <p>Engineering Student of RCOEM.Pursuing BE degree and presently in 3rd year. I am a web developer and python enthusiast.</p>
+        <p><a class="btn btn-primary" href="https://www.linkedin.com/in/yash-agrawal-90b05217a" role="button">View LinkedIn profile &raquo;</a></p>
+      </div>
+       <div class="col-md-4 my-3 text-center">
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnIyZxJAl5REjZbn-b1EMFrTtXw3dXAQ7fTg&usqp=CAU"></img>
+        <h2>Nayan Godhwani</h2>
+         <p>Engineering Student of RCOEM.Pursuing BE degree and presently in 3rd year. </p>
+        <p><a class="btn btn-primary" href="" role="button">View LinkedIn profile &raquo;</a></p>
+      </div>
+</div>
+  </div>
+
+
+<footer class="pt-4 my-md-5 pt-md-5 border-top container">
+    <div class="row">
+      <div class="col-3 col-md ">
+        <img class="mb-2" src="data:image/png;base64,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" alt="" width="94" height="94">
+        <small class="d-block mb-3 text-muted">&copy; 2020-2021</small>
+      </div>
+
+      <div class="col-3 col-md ">
+        <h5>Address</h5>
+        <ul class="list-unstyled text-small">
+           <p class="text-muted">Shri Ramdeobaba College of Engineering and Management<br> Ramdeo Tekdi, Gittikhadan,<br> Katol Road, Nagpur- 440013 <br>(India)</p>
+        </ul>
+              <h5>Social Media</h5>
+        <div class="d-inline p-1">
+          <img src="https://image.flaticon.com/icons/svg/1384/1384053.svg" width="30" height="30">
+        </div>
+        <div class="d-inline p-1">
+          <img src="https://image.flaticon.com/icons/svg/2111/2111728.svg" width="30" height="30">
+        </div>
+        <div class="d-inline p-1">
+          <img src="https://image.flaticon.com/icons/svg/1409/1409945.svg" width="30" height="30">
+        </div>
+      </div>
+      <div class="col-6 col-md ">
+        <h5>Contact Us</h5>
+        <ul class="list-unstyled text-small">
+          <li class=text-muted">Mobile</li>
+          <li class=text-muted">Yash Agrawal : 7083645470 (agrawalyash17@gmail.com)</li><br>
+          <li class=text-muted">Atul Thakre : 8956758226 (atulthakre00@gmail.com)</li><br>
+            <li class=text-muted">Nayan Godhwani : 8788137506 (godhwani.nayan@gmail.com)</li>
+
+        </ul>
+        <hr>
+
+
+
+      </div>
+    </div>
+  </footer>
+
+
+    <footer class="footer">
+      <div class="container-fluid bg-dark">
+          <span class="text-light"><center>RCOEM 2020 Sign Language Matching Tool</center></span>
+      </div>
+    </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+<script>
+    Filevalidation = () => {
+        const fi = document.getElementById('file');
+        // Check if any file is selected.
+        if (fi.files.length > 0) {
+            for (const i = 0; i <= fi.files.length - 1; i++) {
+
+                const fsize = fi.files.item(i).size;
+                const file = Math.round((fsize / 1024));
+                // The size of the file.
+                if (file >= 30) {
+                    alert(
+                      "File too Big, please select a file less than 30Kb");
+                }
+            }
+        }
+    }
+</script>
+</html>
