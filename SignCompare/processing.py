@@ -4,7 +4,6 @@ from django.conf import settings
 import random
 import cv2 as cv2
 import base64
-from bitmap import BitMap
 import os
 
 #Generates a random 128 bit hash value
@@ -147,4 +146,12 @@ def imageMatching(imageLoc1,imageLoc2,baseDir):
 
     # Store the result in a text file
     with open(os.path.join(baseDir, "result.txt"),"w") as result:
-        result.writelines(["{:.2f}\n".format(matchWithImage1),"{:.2f}".format(matchWithImage2)])
+        result.writelines([str(lengthString1)+"\n", str(lengthString2)+"\n", str(lengthLcs)+"\n", "{:.2f}\n".format(matchWithImage1),"{:.2f}".format(matchWithImage2)])
+
+    # Store the string 1 in a text file
+    with open(os.path.join(baseDir, "string1.txt"),"w") as result:
+        result.writelines([imageString1])
+
+    # Store the string 2 in a text file
+    with open(os.path.join(baseDir, "string2.txt"),"w") as result:
+        result.writelines([imageString2])
