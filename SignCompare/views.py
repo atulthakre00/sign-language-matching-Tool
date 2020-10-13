@@ -7,8 +7,9 @@ from .processing import *
 
 @never_cache
 def index(request):
-
+    print("c1")
     if request.method == "POST":
+        print("c2")
         currentProcessName = generateHash()  # Create a random name for current process directory using hash
         currentProcessDir = os.path.join(settings.BASE_DIR, "media",currentProcessName)  # get absolute path for current process directory
         os.mkdir(currentProcessDir)  # create directory for current process
@@ -33,19 +34,34 @@ def index(request):
 
         return redirect('result', currentProcessName)
     else:
+        print("c6")
         return render(request, 'index.html')
 
 @never_cache
 def result(request,resultId):
     try:
         resultBaseDir = os.path.join(settings.BASE_DIR,"media",str(resultId))
+        string1Length,string2Length,lcsLength = 0,0,0
         matchPercent1,matchPercent2 = 0,0
         imageLoc1,imageLoc2 = "",""
+        convtImageLoc1,convtImageLoc2 = "",""
+        imageString1,imageString2 = "",""
 
         #Fetch the match percent results from result.txt file
         with open(os.path.join(resultBaseDir,"result.txt"),"r") as file:
+            string1Length = file.readline()
+            string2Length = file.readline()
+            lcsLength = file.readline()
             matchPercent1 = file.readline()
             matchPercent2 = file.readline()
+
+        #Fetch the image string 1 from string1.txt file
+        with open(os.path.join(resultBaseDir,"string1.txt")) as file:
+            imageString1 = file.readline()
+
+        # Fetch the image string 2 from string1.txt file
+        with open(os.path.join(resultBaseDir,"string2.txt")) as file:
+            imageString2 = file.readline()
 
         #Get imageLoc1 and imageLoc2 from result direcory
         for filename in os.listdir(resultBaseDir):
@@ -55,8 +71,13 @@ def result(request,resultId):
                     imageLoc1 = resultId + "/" + filename  #Input Image1 location
                 else:
                     imageLoc2 = resultId + "/" + filename  #Input Image2 location
+            elif(filename[0] == "c"):
+                if (filename[5] == "1"):
+                    convtImageLoc1 = resultId + "/" + filename  # Converted Image1 location
+                else:
+                    convtImageLoc2 = resultId + "/" + filename  # converted Image2 location
 
-        return render(request, 'result.html', {"imageLoc1":imageLoc1, "imageLoc2":imageLoc2, "matchPercent1":matchPercent1, "matchPercent2":matchPercent2})
+        return render(request, 'result.html', {"imageString2":imageString2, "imageString1":imageString1, "lcsLength":lcsLength, "string1Length":string1Length, "string2Length":string2Length , "convtImageLoc1":convtImageLoc1, "convtImageLoc2":convtImageLoc2, "imageLoc1":imageLoc1, "imageLoc2":imageLoc2, "matchPercent1":matchPercent1, "matchPercent2":matchPercent2})
     except:
         return redirect('index')
 
