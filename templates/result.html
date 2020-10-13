@@ -5,6 +5,11 @@
     <title>Match Result | Sign Language Matching Tool</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+    <style>
+        .imgCaption {
+            border: 1px solid #000;
+        }
+    </style>
 </head>
 <body >
 <div class="jumbotron jumbotron-fluid bg-primary text-light">
@@ -22,7 +27,40 @@
             <div class="col-lg-6 border-right border-dark ">
 
                 <h1 class="text-primary bg-white  " ><center>Image 1</center></h1>
-                <img src="/media/{{imageLoc1}}" alt="Input Image 1" width="250" height="200" class="d-block mx-auto mb-4">
+                <img src="/media/{{imageLoc1}}" alt="Input Image 1" width="250" height="200" class="d-block mx-auto mb-4 imgCaption">
+                <center><p class="lead" style="color:#000">Input Image 1</p></center><br/>
+
+                <!--  RED ARROW IMAGE  -->
+                <img src="/static/red_arrow.png" alt="Arrow Next Step" class="d-block mx-auto mb-4">
+                <br/>
+
+                <!--  CONVERTED BMP IMAGE  -->
+                <img src="/media/{{convtImageLoc1}}" alt="Converted Image 1" width="100px" height="100px" class="d-block mx-auto mb-4 imgCaption">
+                <br/>
+                <center><p class="lead" style="color:#000">Converted BMP Image 1</p></center>
+                <br/>
+
+                <!--  RED ARROW IMAGE  -->
+                <img src="/static/red_arrow.png" alt="Arrow Next Step" class="d-block mx-auto mb-4">
+                <br/>
+
+                <!--  IMAGE STRING  -->
+                <div class="form-group">
+                    <center><label for="imageString1"><p class="lead" style="color:#000">Image String 1</p></label></center>
+                    <textarea class="form-control" id="imageString1" rows="3">{{imageString1}}</textarea>
+                </div>
+                <br/>
+
+                <!--  RED ARROW IMAGE  -->
+                <img src="/static/red_arrow.png" alt="Arrow Next Step" class="d-block mx-auto mb-4">
+
+                <!--  CALCULATION PARA  -->
+                <center>
+                    <p class="lead" style="color:#000">
+                        Image String 1 Length = {{string1Length}}<br/>
+                        LCS Length = {{lcsLength}}<br/>
+                    </p>
+                </center>
 
                 <div class="container p-2  bg-warning text-dark ">
                    <h5> <center>Matching Percentage (With Image 1) : {{matchPercent1}} %</center></h5>
@@ -32,7 +70,41 @@
             <div class="col-lg-6">
 
                 <h1 class="text-primary bg-white" ><center>Image 2</center></h1>
-                <img src="/media/{{imageLoc2}}" alt="Input Image 2" width="250" height="200" class="d-block mx-auto mb-4">
+                <img src="/media/{{imageLoc2}}" alt="Input Image 2" width="250" height="200" class="d-block mx-auto mb-4 imgCaption">
+
+                <center><p class="lead" style="color:#000">Input Image 2</p></center><br/>
+
+                <!--  RED ARROW IMAGE  -->
+                <img src="/static/red_arrow.png" alt="Arrow Next Step" class="d-block mx-auto mb-4">
+                <br/>
+
+                <!--  CONVERTED BMP IMAGE  -->
+                <img src="/media/{{convtImageLoc2}}" width="100px" height="100px" alt="Converted Image 2" class="d-block mx-auto mb-4 imgCaption">
+                <br/>
+                <center><p class="lead" style="color:#000">Converted BMP Image 2</p></center>
+                <br/>
+
+                <!--  RED ARROW IMAGE  -->
+                <img src="/static/red_arrow.png" alt="Arrow Next Step" class="d-block mx-auto mb-4">
+                <br/>
+
+                <!--  IMAGE STRING  -->
+                <div class="form-group">
+                    <center><label for="imageString2"><p class="lead" style="color:#000">Image String 2</p></label></center>
+                    <textarea class="form-control" id="imageString2" rows="3">{{imageString2}}</textarea>
+                </div>
+                <br/>
+
+                <!--  RED ARROW IMAGE  -->
+                <img src="/static/red_arrow.png" alt="Arrow Next Step" class="d-block mx-auto mb-4">
+
+                <!--  CALCULATION PARA  -->
+                <center>
+                    <p class="lead" style="color:#000">
+                        Image String 2 Length = {{string2Length}}<br/>
+                        LCS Length = {{lcsLength}}<br/>
+                    </p>
+                </center>
 
                 <div class="container p-2  bg-warning text-dark">
                    <h5> <center>Matching Percentage (With Image 2) : {{matchPercent2}} %</center></h5>
